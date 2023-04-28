@@ -1,8 +1,16 @@
 # West Coast Swing Data
 
-    An analysis of WSDC points
+An analysis of West Coast Swing points from the World Swing Dance Council's Database. The goal of this project is to update the data and also look for trends that can be found relating to dancers competitive roles.
 
-**Question**:
+> Huge shout out to Connie Wang for the work she did 5 years ago. Her initial github can be found [here](https://github.com/conniewang3/WSDC-Project). Also thank you to Sara Rempel for the Jupyter Notebook breaking down some of Connie's work into more digestible chunks.
+
+## Update: 4/28/23 --
+
+> Just getting started trying to understand all of Connie's work, currently trying to separate points by lead and follow.
+
+----
+
+ **Question**:
 Does geography play a significant factor in making it to Advanced/All-Star?
 Regionally? Specific states? Hard stuck novice states?
 
@@ -16,7 +24,7 @@ South | Texas, Oklahoma, Arkansas, Louisiana, Missisipi, Alabama, Georgia, Tenne
 Mountain States | Colorado, Montana, Idaho, Wyoming, Utah, New Mexico
 | East Coast | Maine, NewHampshire, Massachusetts, Rhode Island, Connecticut, New York, New Jersey, Pennsylvania, Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina |
 
----
+----
 
 **Question**: Number of Finals to make it out of each division?
 
