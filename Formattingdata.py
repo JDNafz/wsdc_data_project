@@ -1,3 +1,7 @@
+# Come back to this later, I need to make sure to 
+# divide lead and follow points before getting to 
+# deep into processing the data to format it.
+
 # import numpy as np
 import pandas as pd
 
