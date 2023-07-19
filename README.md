@@ -1,4 +1,6 @@
-# West Coast Swing Data
+# Everything Under Construction* 
+
+## West Coast Swing Data
 
 An analysis of West Coast Swing points from the World Swing Dance Council's Database. The goal of this project is to update the data and also look for trends that can be found relating to dancers competitive roles.
 
