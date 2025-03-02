@@ -1,0 +1,8 @@
+# The following line ensures that the 'data_scraped' folder is ignored by Git,
+# but the '.gitkeep' file inside it is tracked. This allows the folder to be
+# uploaded empty, without keeping its contents thus allowing the folder to already exist when a user clones the repository.
+
+data_scraped/*
+!data_scraped/.gitkeep
+
+

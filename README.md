@@ -4,7 +4,7 @@
 
 An analysis of West Coast Swing points from the World Swing Dance Council's Database. The goal of this project is to update the data and also look for trends that can be found relating to dancers competitive roles.
 
-> Huge shout out to Connie Wang for the work she did 5 years ago. Her initial github can be found [here](https://github.com/conniewang3/WSDC-Project). Also thank you to Sara Rempel for the Jupyter Notebook breaking down some of Connie's work into more digestible chunks.
+> Huge shout out to Connie Wang for the work she did in 2018. Her initial github can be found [here](https://github.com/conniewang3/WSDC-Project). Also thank you to Sara Rempel for the Jupyter Notebook breaking down some of Connie's work into more digestible chunks.
 
 ## Update: 4/28/23 --
 

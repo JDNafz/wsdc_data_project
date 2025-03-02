@@ -126,6 +126,6 @@ for wsdc_id in range(start, end):
 
 
 # Export dataframe to a csv file with the path shown
-# point_df.to_csv('C:\\Users\\nafzi\\Desktop\\WSDCdata\\Point_DF_'+str(start)+'-'+str(end)+'_'+str(today)+'.csv')
+point_df.to_csv('C:\\Users\\nafzi\\Documents\\projects\\wsdc_data_project\\data_scraped\\Point_DF_'+str(start)+'-'+str(end)+'_'+str(today)+'.csv')
 
 
