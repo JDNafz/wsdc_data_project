@@ -178,8 +178,10 @@ def scrape(start, end, export=True):
 
 
 
-# scrape(0,2001, True) # Collect and compile a large data set
-# scrape(2000,10001, True) # Collect and compile a large data set
+# scrape(0, 8500, True)      # Collect and compile a large data set - 0    to 8.5k
+# scrape(8500, 17000, True)  # Collect and compile a large data set - 8.5k to 17k
+# scrape(17000, 25500, True) # Collect and compile a large data set - 17k  to 25.5k (end)
+
 
 
 # Test cases: 

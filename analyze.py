@@ -1,9 +1,8 @@
 # Run py summarize.py to see the summary of the data
 
-import pandas as pd # type: ignore
-# import json
-import seaborn as sns
-import matplotlib.pyplot as plt
+import pandas as pd             # type: ignore
+import seaborn as sns           # type: ignore
+import matplotlib.pyplot as plt # type: ignore
 
 # Read the CSV file
 file_path = r'C:\Users\nafzi\Documents\projects\wsdc_data_project\data_scraped\points_df_0-2001_2025-03-02.csv'
