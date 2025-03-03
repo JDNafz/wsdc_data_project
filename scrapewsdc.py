@@ -38,12 +38,22 @@ today = (
     date.today()
 )  # the collection date will be appended to the excel file so I know when I ran it
 
+def format_time(time):
+    # Convert to hours, minutes, and seconds
+    hours, remainder = divmod(int(time), 3600)
+    minutes, seconds = divmod(remainder, 60)
 
+    # Format as "HH:MM:SS"
+    formatted_time = f"{hours:02}:{minutes:02}:{seconds:02}"
+
+    # print(f"Elapsed time: {formatted_time}")
+    return formatted_time
+    
 # print(point_df) # print the initialized empty dataframe
 def scrape(start, end, export=True):
     global point_df
     start_time = time.time()
-    minute_counter= 0
+    print_counter= 0
     # Loop to go through every WSDC number
     for wsdc_id in range(start, end):
         try:
@@ -111,12 +121,12 @@ def scrape(start, end, export=True):
                 #if current iteration % 50 ... then
                 startMod50 = start - start % 63 # about once per minute?
                 currentIteration = wsdc_id - startMod50
-                if currentIteration % 63 == 0:
+                if currentIteration % 1000 == 0:
                     midPoint_time = time.time()
                     midelapsed_time = midPoint_time - start_time
-                    minute_counter += 1
-                    print(str(currentIteration), " completed, Westie #" + str(wsdc_id) + " completed. Counter:", minute_counter)
-                    print(f"Elapsed time: {midelapsed_time:.2f} seconds")
+                    print_counter += 1
+                    print("\n",str(currentIteration), " completed, Westie #" + str(wsdc_id) + " completed. Counter:", print_counter)
+                    print("Elapsed time: ", format_time(midelapsed_time))
                     
                     
             # print('Dancer #'+str(wsdc_id)+' completed.')
@@ -153,7 +163,7 @@ def scrape(start, end, export=True):
     total_time = end_time - start_time
     
     print('Completed Westie #',wsdc_id,'\nThat\'s all the westies!')
-    print(f"Elapsed time: {total_time:.2f} seconds")
+    print("Total elapsed time: ", format_time(total_time))
 
 
 
@@ -169,9 +179,11 @@ def scrape(start, end, export=True):
 
 
 # scrape(0,2001, True) # Collect and compile a large data set
+# scrape(2000,10001, True) # Collect and compile a large data set
+
 
 # Test cases: 
-# scrape(13758, 13759, True) # JD's points 
+# scrape(13758, 13759, False) # JD's points 
 # scrape(420, 421, False) # ID doesn't exist
 
 # max ID number is 25154 (25,154) as of 3/2/2025
