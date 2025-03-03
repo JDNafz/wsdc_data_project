@@ -145,8 +145,10 @@ def scrape(start, end, export=True):
 # Note that it's best to do 5-10k numbers at a time (takes ~1-2hr to run)
 #     instead of doing the whole thing at once (which takes 4-6 hours)
 
-# scrape(100,200, True) # Collect and compile a large data set
+scrape(,200, True) # Collect and compile a large data set
 
 # Test cases: 
 # scrape(13758, 13759, False) # JD's points 
 # scrape(420, 421, False) # ID doesn't exist
+
+# max ID number is 25154 (25,154) as of 3/2/2025
