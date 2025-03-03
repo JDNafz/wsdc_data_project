@@ -4,5 +4,5 @@
 
 data_scraped/*
 !data_scraped/.gitkeep
-
-
+.vscode/
+.venv/
