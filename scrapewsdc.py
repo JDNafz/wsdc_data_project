@@ -1,5 +1,5 @@
 #To run this file and scrape data, 
-# 1. Edit line 148 to change the range of WSDC IDs to scrape
+# 1. Edit line 155 to change the range of WSDC IDs to scrape
 # 2. Run the following command in the terminal:
 # py scrapewsdc.py
 # 3/2/2025 Python 3.11.0
@@ -56,6 +56,7 @@ def scrape(start, end, export=True):
                     "placements"
                 ].keys()  # has WCS placements rather than non-WCS placements
             ):
+                # westie is an http response object returned by the API when searching for a WSDC ID
                 westie = response["placements"]["West Coast Swing"]
 
                 # Extract dancer's level information and name
@@ -105,7 +106,10 @@ def scrape(start, end, export=True):
                         + str(today)
                         + "2k_done_still_scraping.csv"
                     )
-
+                #if current iteration % 50 ... then
+                currentIteration = wsdc_id - (start - start % 50)
+                if currentIteration % 50 == 0:
+                    print(str(currentIteration), " completed, Westie #" + str(wsdc_id) + " completed.")
             # print('Dancer #'+str(wsdc_id)+' completed.')
             # sleep for 0.5 seconds on each for loop to let WSDC website rest
             time.sleep(0.5)
@@ -136,7 +140,8 @@ def scrape(start, end, export=True):
                     )
         except ValueError as IndexError:
             continue
-    print('That\'s all the westies!')
+    print('Completed Westie #',wsdc_id,'\nThat\'s all the westies!')
+
 
 
 
@@ -145,8 +150,14 @@ def scrape(start, end, export=True):
 # Note that it's best to do 5-10k numbers at a time (takes ~1-2hr to run)
 #     instead of doing the whole thing at once (which takes 4-6 hours)
 
-scrape(,200, True) # Collect and compile a large data set
+start_time = time.time()
 
+# scrape(1999,2101, True) # Collect and compile a large data set
+
+end_time = time.time()
+elapsed_time = end_time - start_time
+
+print(f"Elapsed time: {elapsed_time:.2f} seconds")
 # Test cases: 
 # scrape(13758, 13759, False) # JD's points 
 # scrape(420, 421, False) # ID doesn't exist
