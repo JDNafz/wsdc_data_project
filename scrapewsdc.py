@@ -1,5 +1,5 @@
 #To run this file and scrape data, 
-# 1. Edit line 151 to change the range of WSDC IDs to scrape
+# 1. Edit line 148 to change the range of WSDC IDs to scrape
 # 2. Run the following command in the terminal:
 # py scrapewsdc.py
 # 3/2/2025 Python 3.11.0
@@ -139,14 +139,11 @@ def scrape(start, end, export=True):
     print('That\'s all the westies!')
 
 
-#       (start, end,  export= True/False) default start/end is JD's points
-# scrape(0,     1000, True)    #scrape from 0 to 1000 and export to csv
+
+
 
 # Note that it's best to do 5-10k numbers at a time (takes ~1-2hr to run)
 #     instead of doing the whole thing at once (which takes 4-6 hours)
-
-
-
 
 # scrape(100,200, True) # Collect and compile a large data set
 
