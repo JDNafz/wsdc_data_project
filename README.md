@@ -48,4 +48,12 @@ Mountain States | Colorado, Montana, Idaho, Wyoming, Utah, New Mexico
 
 **Question**:
 
-**Question**:
+# **Fun Facts**:
+
+### - 24k Gold -
+
+Maya Codina's wsdc number is 24079. The atomic number of gold is 79, so Maya is clearly 24k Gold. Sadly Maya never went on to earn anymore wsdc points. Such a beatufil wsdc number gone to waste.
+```json
+24079,NOV_2,NOV,NOV,NOV,Chicagoland Country and Swing Dance Festival,"Chicago, IL",August 2024,2,5,follower,Maya,Codina
+```
+
