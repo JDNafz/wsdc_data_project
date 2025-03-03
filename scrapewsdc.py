@@ -114,6 +114,7 @@ def scrape(start, end, export=True):
                 if currentIteration % 63 == 0:
                     midPoint_time = time.time()
                     midelapsed_time = midPoint_time - start_time
+                    minute_counter += 1
                     print(str(currentIteration), " completed, Westie #" + str(wsdc_id) + " completed. Counter:", minute_counter)
                     print(f"Elapsed time: {midelapsed_time:.2f} seconds")
                     
@@ -152,7 +153,7 @@ def scrape(start, end, export=True):
     total_time = end_time - start_time
     
     print('Completed Westie #',wsdc_id,'\nThat\'s all the westies!')
-    print(f"Elapsed time: {elapsed_time:.2f} seconds")
+    print(f"Elapsed time: {total_time:.2f} seconds")
 
 
 
@@ -163,14 +164,14 @@ def scrape(start, end, export=True):
 #     instead of doing the whole thing at once (which takes 4-6 hours)
 #   ~2023
 
-# 3/2/2025 ~1-2 hours should be 4-8k
+# 3/2/2025 1.06/second for 2000 IDs > 33898.11 per hour
 
 
 
-scrape(0,2001, True) # Collect and compile a large data set
+# scrape(0,2001, True) # Collect and compile a large data set
 
 # Test cases: 
-# scrape(13758, 13759, False) # JD's points 
+# scrape(13758, 13759, True) # JD's points 
 # scrape(420, 421, False) # ID doesn't exist
 
 # max ID number is 25154 (25,154) as of 3/2/2025

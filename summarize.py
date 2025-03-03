@@ -8,6 +8,27 @@ file_path = r'C:\Users\nafzi\Documents\projects\wsdc_data_project\data_scraped\J
 
 data = pd.read_csv(file_path)
 
+
+
+DataFrameColumns=[
+    "wsdc_id", # integer
+    "level_points", #total points at level "NOV_123" NOV separated by _ then total number of points in that division between both roles
+    "allowed_level", #highest level allowed
+    "required_level", #correlations between event level and required?
+    "event_level", #level of the event
+    "event_name",
+    "event_location",
+    "event_date",
+    "points", #points earned
+    "result", #placement 1st, 2nd, 3rd, etc then F for Finaled
+    "role", #leader or follower
+    "first_name",
+    "last_name",
+]
+
+
+
+
 # returns current dancer object and prints summary.
 def getDancerMaxLevels(data):
         
@@ -18,12 +39,18 @@ def getDancerMaxLevels(data):
             return 2
         elif level == 'NOV':
             return 3
+        elif level == 'SPH': #sophisticated
+            return 3.5      
+        elif level == 'MSTR': #masters
+            return 3.25 
         elif level == 'INT':
             return 4
         elif level == 'ADV':
             return 5
         elif level == 'ALS':
             return 6
+        elif level == 'INV': #invitational
+            return 6.5  
         elif level == 'CHAMP' or level == 'PRO' or level == 'ALS+':
             return 7
         else:
@@ -92,24 +119,24 @@ def getDancerMaxLevels(data):
         else:        
             # if leader add lead points
             if row['role'] == 'leader':
-                for i in range(len(current_dancer['leader_points']) -1,-1,-1):
+                for i in range(len(leader_points) -1,-1,-1):
                     # if level 5 event = index of range
                     if event_level == i:
                         # add the points to the current dancer
-                        current_dancer['leader_points'][i] += event_points
-                        current_dancer['division_points'][i] += event_points
+                        leader_points[i] += event_points
+                        division_points[i] += event_points
                         current_dancer['total_points'] += event_points
                         if getLvl(current_dancer['allowed_leader_level']) < event_level:
                             current_dancer['allowed_leader_level'] = getLvlStr(event_level)
 
             # is follower add follow points
             else:
-                for i in range(len(current_dancer['follower_points']) -1,-1,-1):
+                for i in range(len(follower_points) -1,-1,-1):
                     # if level 5 event = index of range
                     if event_level == i:
                         # add the points to the current dancer
-                        current_dancer['follower_points'][i] += event_points
-                        current_dancer['division_points'][i] += event_points
+                        follower_points[i] += event_points
+                        division_points[i] += event_points
                         current_dancer['total_points'] += event_points
                         if getLvl(current_dancer['allowed_follower_level']) < event_level:
                             current_dancer['allowed_follower_level'] = getLvlStr(event_level)
@@ -135,20 +162,3 @@ getDancerMaxLevels(data)
 
 #see summary AND the object
 # print(getDancerMaxLevels(data))
-
-
-DataFrameColumns=[
-    "wsdc_id",
-    "level_points",
-    "allowed_level",
-    "required_level",
-    "event_level",
-    "event_name",
-    "event_location",
-    "event_date",
-    "points",
-    "result",
-    "role",
-    "first_name",
-    "last_name",
-]
