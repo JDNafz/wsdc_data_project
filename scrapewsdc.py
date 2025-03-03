@@ -159,7 +159,7 @@ def scrape(start, end, export=True):
 
 start_time = time.time()
 
-scrape(1999,2101, True) # Collect and compile a large data set
+# scrape(1999,2101, True) # Collect and compile a large data set
 
 end_time = time.time()
 elapsed_time = end_time - start_time
