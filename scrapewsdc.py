@@ -1,5 +1,5 @@
 #To run this file and scrape data, 
-# 1. Edit line 155 to change the range of WSDC IDs to scrape
+# 1. Edit line 170 to change the range of WSDC IDs to scrape
 # 2. Run the following command in the terminal:
 # py scrapewsdc.py
 # 3/2/2025 Python 3.11.0
@@ -42,6 +42,7 @@ today = (
 # print(point_df) # print the initialized empty dataframe
 def scrape(start, end, export=True):
     global point_df
+    start_time = time.time()
     # Loop to go through every WSDC number
     for wsdc_id in range(start, end):
         try:
@@ -100,17 +101,20 @@ def scrape(start, end, export=True):
                         point_df = pd.concat(
                             [point_df, point_df_new_row], ignore_index=True
                         )
-                if wsdc_id % 2000 == 0:
+                if wsdc_id % 5000 == 0:
                     point_df.to_csv(
                         "C:\\Users\\nafzi\\Documents\\projects\\wsdc_data_project\\data_scraped\\points_df_"
                         + str(today)
-                        + "2k_done_still_scraping.csv"
+                        + "_2k_done_still_scraping.csv"
                     )
                 #if current iteration % 50 ... then
-                startMod50 = start - start % 50
+                startMod50 = start - start % 63 # about once per minute?
                 currentIteration = wsdc_id - startMod50
-                if currentIteration % 50 == 0:
+                if currentIteration % 63 == 0:
+                    midPoint_time = time.time()
+                    midelapsed_time = midPoint_time - start_time
                     print(str(currentIteration), " completed, Westie #" + str(wsdc_id) + " completed.")
+                    print(f"Elapsed time: {midelapsed_time:.2f} seconds")
                     
                     
             # print('Dancer #'+str(wsdc_id)+' completed.')
@@ -143,7 +147,11 @@ def scrape(start, end, export=True):
                     )
         except ValueError as IndexError:
             continue
+    end_time = time.time()
+    total_time = end_time - start_time
+    
     print('Completed Westie #',wsdc_id,'\nThat\'s all the westies!')
+    print(f"Elapsed time: {elapsed_time:.2f} seconds")
 
 
 
@@ -154,17 +162,12 @@ def scrape(start, end, export=True):
 #     instead of doing the whole thing at once (which takes 4-6 hours)
 #   ~2023
 
-# 3/2/2025 (sample size 622) estimates ~6.76 per second or 1k entries per 2.5 minutes,
-#   so all ~25k entries would take 62.5 minutes ~~~Need a larger sample size to test this.
+# 3/2/2025 ~1-2 hours should be 4-8k
 
-start_time = time.time()
 
-# scrape(1999,2101, True) # Collect and compile a large data set
 
-end_time = time.time()
-elapsed_time = end_time - start_time
+scrape(0,2001, True) # Collect and compile a large data set
 
-print(f"Elapsed time: {elapsed_time:.2f} seconds")
 # Test cases: 
 # scrape(13758, 13759, False) # JD's points 
 # scrape(420, 421, False) # ID doesn't exist
