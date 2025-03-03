@@ -107,9 +107,12 @@ def scrape(start, end, export=True):
                         + "2k_done_still_scraping.csv"
                     )
                 #if current iteration % 50 ... then
-                currentIteration = wsdc_id - (start - start % 50)
+                startMod50 = start - start % 50
+                currentIteration = wsdc_id - startMod50
                 if currentIteration % 50 == 0:
                     print(str(currentIteration), " completed, Westie #" + str(wsdc_id) + " completed.")
+                    
+                    
             # print('Dancer #'+str(wsdc_id)+' completed.')
             # sleep for 0.5 seconds on each for loop to let WSDC website rest
             time.sleep(0.5)
@@ -147,12 +150,16 @@ def scrape(start, end, export=True):
 
 
 
-# Note that it's best to do 5-10k numbers at a time (takes ~1-2hr to run)
+# Note that it's best to do 5-10k numbers at a time (takes ~1-2hr to run) 
 #     instead of doing the whole thing at once (which takes 4-6 hours)
+#   ~2023
+
+# 3/2/2025 (sample size 622) estimates ~6.76 per second or 1k entries per 2.5 minutes,
+#   so all ~25k entries would take 62.5 minutes ~~~Need a larger sample size to test this.
 
 start_time = time.time()
 
-# scrape(1999,2101, True) # Collect and compile a large data set
+scrape(1999,2101, True) # Collect and compile a large data set
 
 end_time = time.time()
 elapsed_time = end_time - start_time
