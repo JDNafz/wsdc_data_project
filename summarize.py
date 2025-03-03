@@ -1,3 +1,5 @@
+# Run py summarize.py to see the summary of the data
+
 import pandas as pd # type: ignore
 import json
 
@@ -6,8 +8,7 @@ file_path = r'C:\Users\nafzi\Documents\projects\wsdc_data_project\data_scraped\J
 
 data = pd.read_csv(file_path)
 
-# Display the first few rows of the dataframe
-# print(data.head())
+# returns current dancer object and prints summary.
 def getDancerMaxLevels(data):
         
     def getLvl(level):
@@ -129,7 +130,11 @@ def getDancerMaxLevels(data):
     return current_dancer
 
 
-print(getDancerMaxLevels(data))
+#see the summary
+getDancerMaxLevels(data)
+
+#see summary AND the object
+# print(getDancerMaxLevels(data))
 
 
 DataFrameColumns=[
