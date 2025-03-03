@@ -43,6 +43,7 @@ today = (
 def scrape(start, end, export=True):
     global point_df
     start_time = time.time()
+    minute_counter= 0
     # Loop to go through every WSDC number
     for wsdc_id in range(start, end):
         try:
@@ -113,7 +114,7 @@ def scrape(start, end, export=True):
                 if currentIteration % 63 == 0:
                     midPoint_time = time.time()
                     midelapsed_time = midPoint_time - start_time
-                    print(str(currentIteration), " completed, Westie #" + str(wsdc_id) + " completed.")
+                    print(str(currentIteration), " completed, Westie #" + str(wsdc_id) + " completed. Counter:", minute_counter)
                     print(f"Elapsed time: {midelapsed_time:.2f} seconds")
                     
                     
