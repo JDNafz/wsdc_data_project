@@ -17,5 +17,6 @@ combined_df = pd.concat(dfs, ignore_index=True).drop_duplicates()
 
 # Save to a new CSV file
 today = str(date.today())
-combined_df.to_csv('C:\\Users\\nafzi\\Documents\\projects\\wsdc_data_project\\data_scraped\\all_westies_' + today + ".csv", index=False)
+outputPath = r"C:\\Users\\nafzi\\Documents\\projects\\wsdc_data_project\\data_scraped\\"
+combined_df.to_csv(outputPath + 'all_westies_' + today + ".csv", index=False)
 print("Combined CSV file saved successfully!")
